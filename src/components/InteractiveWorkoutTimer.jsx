@@ -56,13 +56,13 @@ export default function InteractiveWorkoutTimer() {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <span className="tech-pill tech-pill-cyan">IN-GYM TELEMETRY</span>
+            <span className="pill-tag">IN-GYM TELEMETRY</span>
             <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
               BARBELL INCLINE BENCH
             </span>
           </div>
           <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: '#fff' }}>
-            FR-05: In-Session Rest Countdown & Dynamic Overload
+            In-Session Rest Countdown & Dynamic Overload
           </h3>
           <p style={{ fontSize: '0.88rem', color: 'var(--text-mid)', marginTop: '4px' }}>
             Live athlete companion tracking load, reps, RPE, and automated intra-set recovery countdowns.
@@ -78,13 +78,13 @@ export default function InteractiveWorkoutTimer() {
       }}>
         {/* Set Logger */}
         <div style={{
-          backgroundColor: '#05070a',
+          backgroundColor: '#000000',
           padding: '24px',
           borderRadius: 'var(--radius-md)',
-          border: '1px solid rgba(255, 255, 255, 0.08)'
+          border: '1px solid rgba(255, 255, 255, 0.1)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
-            <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>
               SET 0{activeSet} // TARGET: 8-10 REPS
             </span>
             <span style={{ fontSize: '0.72rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
@@ -105,7 +105,7 @@ export default function InteractiveWorkoutTimer() {
                   width: '100%',
                   padding: '8px 12px',
                   backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: 'var(--radius-xs)',
                   color: '#fff',
                   fontFamily: 'var(--font-mono)',
@@ -127,7 +127,7 @@ export default function InteractiveWorkoutTimer() {
                   width: '100%',
                   padding: '8px 12px',
                   backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: 'var(--radius-xs)',
                   color: '#fff',
                   fontFamily: 'var(--font-mono)',
@@ -148,7 +148,7 @@ export default function InteractiveWorkoutTimer() {
                   width: '100%',
                   padding: '10px 8px',
                   backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: 'var(--radius-xs)',
                   color: '#fff',
                   fontFamily: 'var(--font-mono)',
@@ -174,18 +174,18 @@ export default function InteractiveWorkoutTimer() {
           </button>
 
           {/* History */}
-          <div style={{ marginTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '10px' }}>
+          <div style={{ marginTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '10px' }}>
             {completedSets.map((s, idx) => (
               <div key={idx} style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 fontSize: '0.78rem',
                 fontFamily: 'var(--font-mono)',
-                padding: '3px 0',
+                padding: '4px 0',
                 color: 'var(--text-mid)'
               }}>
                 <span>SET 0{s.set}: {s.weight}kg × {s.reps} reps</span>
-                <span style={{ color: 'var(--accent-emerald)' }}>RPE {s.rpe} ✓</span>
+                <span style={{ color: '#ffffff', fontWeight: 600 }}>RPE {s.rpe} ✓</span>
               </div>
             ))}
           </div>
@@ -193,10 +193,10 @@ export default function InteractiveWorkoutTimer() {
 
         {/* Minimalist Rest Clock */}
         <div style={{
-          backgroundColor: '#05070a',
+          backgroundColor: '#000000',
           padding: '28px',
           borderRadius: 'var(--radius-md)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           textAlign: 'center',
           display: 'flex',
           flexDirection: 'column',
@@ -233,7 +233,7 @@ export default function InteractiveWorkoutTimer() {
                   fontFamily: 'var(--font-mono)',
                   backgroundColor: selectedDuration === sec && isRunning ? '#ffffff' : 'rgba(255, 255, 255, 0.04)',
                   color: selectedDuration === sec && isRunning ? '#000000' : 'var(--text-mid)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)'
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
                 {sec}s

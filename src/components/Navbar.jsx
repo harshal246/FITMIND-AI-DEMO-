@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Brain, Layers, Cpu, PlayCircle, ExternalLink, Menu, X, ArrowUpRight } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
+import { Brain, Layers, Cpu, PlayCircle, Sliders, Menu, X, ArrowUpRight } from 'lucide-react';
 
-export default function Navbar({ activePage, setActivePage }) {
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const tabs = [
-    { id: 'functional', label: 'Functional Requirements', icon: Layers },
-    { id: 'architecture', label: 'Architecture & Multi-Agent', icon: Cpu },
-    { id: 'experience', label: 'Experience & Gallery', icon: PlayCircle }
+  const navLinks = [
+    { to: '/', label: 'Overview', icon: Layers, end: true },
+    { to: '/architecture', label: 'Architecture', icon: Cpu },
+    { to: '/modules', label: '11 Modules', icon: Sliders },
+    { to: '/experience', label: 'Gallery & Experience', icon: PlayCircle }
   ];
 
   return (
@@ -24,7 +26,7 @@ export default function Navbar({ activePage, setActivePage }) {
         margin: '0 auto',
         height: '64px',
         borderRadius: 'var(--radius-full)',
-        backgroundColor: 'rgba(10, 12, 16, 0.75)',
+        backgroundColor: 'rgba(10, 12, 16, 0.88)',
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -34,14 +36,14 @@ export default function Navbar({ activePage, setActivePage }) {
         justifyContent: 'space-between',
         padding: '0 20px'
       }}>
-        {/* Brand */}
-        <div 
-          onClick={() => setActivePage('functional')}
+        {/* Brand Link */}
+        <Link 
+          to="/"
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            cursor: 'pointer',
+            textDecoration: 'none',
             userSelect: 'none'
           }}
         >
@@ -53,14 +55,15 @@ export default function Navbar({ activePage, setActivePage }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#000'
+            color: '#000',
+            boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)'
           }}>
             <Brain size={16} strokeWidth={2.5} />
           </div>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <span style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.15rem',
+              fontSize: '1.18rem',
               fontWeight: 800,
               letterSpacing: '-0.03em',
               color: '#fff'
@@ -68,86 +71,80 @@ export default function Navbar({ activePage, setActivePage }) {
               FITMIND
             </span>
             <span style={{
-              fontSize: '0.7rem',
+              fontSize: '0.72rem',
               fontFamily: 'var(--font-mono)',
-              color: 'var(--accent-cyan)',
-              fontWeight: 700,
-              letterSpacing: '0.1em'
+              color: '#000000',
+              backgroundColor: '#ffffff',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              padding: '1px 6px',
+              borderRadius: '4px',
+              lineHeight: 1.2
             }}>
-              OS
+              AI
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Center Segmented Pill Switcher (Desktop) */}
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: '4px',
+          gap: '3px',
           backgroundColor: 'rgba(255, 255, 255, 0.04)',
           padding: '4px',
           borderRadius: 'var(--radius-full)',
           border: '1px solid rgba(255, 255, 255, 0.06)'
         }} className="desktop-navbar">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activePage === tab.id;
+          {navLinks.map((item) => {
+            const Icon = item.icon;
             return (
-              <button
-                key={tab.id}
-                onClick={() => setActivePage(tab.id)}
-                style={{
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                style={({ isActive }) => ({
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '7px 18px',
+                  gap: '7px',
+                  padding: '7px 16px',
                   borderRadius: 'var(--radius-full)',
-                  fontSize: '0.84rem',
-                  fontWeight: isActive ? 600 : 400,
+                  fontSize: '0.82rem',
+                  fontWeight: isActive ? 700 : 400,
                   color: isActive ? '#000000' : 'var(--text-mid)',
                   backgroundColor: isActive ? '#ffffff' : 'transparent',
-                  boxShadow: isActive ? '0 2px 10px rgba(255, 255, 255, 0.2)' : 'none',
-                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
+                  boxShadow: isActive ? '0 2px 10px rgba(255, 255, 255, 0.25)' : 'none',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  whiteSpace: 'nowrap'
+                })}
               >
-                <Icon size={14} strokeWidth={isActive ? 2.5 : 2} />
-                <span>{tab.label}</span>
-              </button>
+                {({ isActive }) => (
+                  <>
+                    <Icon size={14} strokeWidth={isActive ? 2.5 : 2} />
+                    <span>{item.label}</span>
+                  </>
+                )}
+              </NavLink>
             );
           })}
         </nav>
 
-        {/* Right Status & Launch Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          {/* Status Indicator */}
-          <div style={{
-            display: 'none',
-            alignItems: 'center',
-            gap: '8px',
-            fontSize: '0.74rem',
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--text-mid)',
-            padding: '4px 10px',
-            borderRadius: 'var(--radius-full)',
-            backgroundColor: 'rgba(255, 255, 255, 0.03)',
-            border: '1px solid rgba(255, 255, 255, 0.06)'
-          }} className="desktop-status">
-            <span className="status-indicator-dot"></span>
-            <span>SYSTEM ACTIVE</span>
-          </div>
-
+        {/* Right Actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {/* Direct link to live running app */}
           <a
-            href="http://localhost:5173"
+            href="https://100.63.74.53.sslip.io/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-solid-titanium"
             style={{
               padding: '8px 18px',
-              fontSize: '0.82rem'
+              fontSize: '0.84rem',
+              textDecoration: 'none'
             }}
           >
-            <span>Live Platform</span>
+            <span>Live App</span>
             <ArrowUpRight size={14} />
           </a>
 
@@ -157,7 +154,10 @@ export default function Navbar({ activePage, setActivePage }) {
             style={{
               display: 'flex',
               padding: '8px',
-              color: '#fff'
+              color: '#fff',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer'
             }}
             className="mobile-navbar-toggle"
             aria-label="Toggle menu"
@@ -174,47 +174,45 @@ export default function Navbar({ activePage, setActivePage }) {
           margin: '8px auto 0',
           padding: '12px',
           borderRadius: 'var(--radius-md)',
-          backgroundColor: 'rgba(10, 12, 16, 0.95)',
+          backgroundColor: 'rgba(10, 12, 16, 0.96)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
           backdropFilter: 'blur(20px)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '4px'
+          gap: '6px'
         }}>
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activePage === tab.id;
+          {navLinks.map((item) => {
+            const Icon = item.icon;
             return (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setActivePage(tab.id);
-                  setMobileOpen(false);
-                }}
-                style={{
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                onClick={() => setMobileOpen(false)}
+                style={({ isActive }) => ({
                   display: 'flex',
                   alignItems: 'center',
                   gap: '10px',
                   padding: '12px 16px',
                   borderRadius: 'var(--radius-sm)',
-                  backgroundColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  backgroundColor: isActive ? 'rgba(255, 255, 255, 0.12)' : 'transparent',
                   color: isActive ? '#ffffff' : 'var(--text-mid)',
                   fontSize: '0.9rem',
-                  fontWeight: isActive ? 600 : 400
-                }}
+                  fontWeight: isActive ? 600 : 400,
+                  textDecoration: 'none'
+                })}
               >
                 <Icon size={16} />
-                <span>{tab.label}</span>
-              </button>
+                <span>{item.label}</span>
+              </NavLink>
             );
           })}
         </div>
       )}
 
       <style>{`
-        @media (min-width: 900px) {
+        @media (min-width: 960px) {
           .desktop-navbar { display: flex !important; }
-          .desktop-status { display: flex !important; }
           .mobile-navbar-toggle { display: none !important; }
         }
       `}</style>

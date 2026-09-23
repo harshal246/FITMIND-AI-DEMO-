@@ -21,10 +21,10 @@ export default function InteractiveReadiness() {
   const score = calculateScore();
 
   const getTier = (val) => {
-    if (val >= 85) return { label: 'PRIME ADAPTATION', color: '#10b981', advice: 'Central nervous system at peak recovery. Programmed for heavy compound singles and progressive volume overload.' };
-    if (val >= 70) return { label: 'OPTIMAL CAPACITY', color: '#38bdf8', advice: 'Physiological markers baseline stable. Execute scheduled training session as written.' };
-    if (val >= 50) return { label: 'MODERATE FATIGUE', color: '#f59e0b', advice: 'Sympathetic tone elevated. Auto-clamp RPE to 8.0 and reduce secondary assistance volume by 1 working set.' };
-    return { label: 'AUTONOMIC STRAIN (DELOAD)', color: '#f43f5e', advice: 'High neuromuscular fatigue. System pivots to active mobility, 3.5L hydration, and parasympathetic breathing.' };
+    if (val >= 85) return { label: 'PRIME ADAPTATION', advice: 'Central nervous system at peak recovery. Programmed for heavy compound singles and progressive volume overload.' };
+    if (val >= 70) return { label: 'OPTIMAL CAPACITY', advice: 'Physiological markers baseline stable. Execute scheduled training session as written.' };
+    if (val >= 50) return { label: 'MODERATE FATIGUE', advice: 'Sympathetic tone elevated. Auto-clamp RPE to 8.0 and reduce secondary assistance volume by 1 working set.' };
+    return { label: 'AUTONOMIC STRAIN (DELOAD)', advice: 'High neuromuscular fatigue. System pivots to active mobility, 3.5L hydration, and parasympathetic breathing.' };
   };
 
   const tier = getTier(score);
@@ -42,13 +42,13 @@ export default function InteractiveReadiness() {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <span className="tech-pill tech-pill-emerald">BIOMETRIC SIMULATOR</span>
+            <span className="pill-tag">BIOMETRIC SIMULATOR</span>
             <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
-              POST /api/v1/recovery/checkin
+              AUTONOMIC RECOVERY ALGORITHM
             </span>
           </div>
           <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: '#fff' }}>
-            FR-03: Autonomous Morning Readiness Engine
+            Autonomous Morning Readiness Engine
           </h3>
           <p style={{ fontSize: '0.88rem', color: 'var(--text-mid)', marginTop: '4px' }}>
             Calibrates daily neuromuscular training capacity using multi-variable biometric inputs.
@@ -59,16 +59,17 @@ export default function InteractiveReadiness() {
         <div style={{
           padding: '6px 14px',
           borderRadius: 'var(--radius-full)',
-          background: 'rgba(255, 255, 255, 0.03)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: 'rgba(255, 255, 255, 0.05)',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
           fontSize: '0.78rem',
           fontFamily: 'var(--font-mono)',
-          color: tier.color,
+          color: '#ffffff',
           display: 'flex',
           alignItems: 'center',
-          gap: '8px'
+          gap: '8px',
+          fontWeight: 600
         }}>
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: tier.color }} />
+          <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ffffff', boxShadow: '0 0 6px rgba(255, 255, 255, 0.8)' }} />
           <span>{tier.label}</span>
         </div>
       </div>
@@ -148,9 +149,9 @@ export default function InteractiveReadiness() {
 
         {/* Dial Output */}
         <div style={{
-          backgroundColor: 'rgba(5, 7, 10, 0.85)',
+          backgroundColor: '#000000',
           borderRadius: 'var(--radius-lg)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           padding: '30px',
           textAlign: 'center',
           display: 'flex',
@@ -162,11 +163,11 @@ export default function InteractiveReadiness() {
             width: '160px',
             height: '160px',
             borderRadius: '50%',
-            background: `conic-gradient(${tier.color} ${score * 3.6}deg, rgba(255, 255, 255, 0.05) 0deg)`,
+            background: `conic-gradient(#ffffff ${score * 3.6}deg, rgba(255, 255, 255, 0.08) 0deg)`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: `0 0 45px -10px ${tier.color}40`,
+            boxShadow: `0 0 35px -10px rgba(255, 255, 255, 0.3)`,
             marginBottom: '18px',
             transition: 'all 0.3s ease'
           }}>
@@ -174,7 +175,7 @@ export default function InteractiveReadiness() {
               width: '132px',
               height: '132px',
               borderRadius: '50%',
-              backgroundColor: '#07090e',
+              backgroundColor: '#000000',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -197,7 +198,7 @@ export default function InteractiveReadiness() {
             fontSize: '0.82rem',
             fontFamily: 'var(--font-mono)',
             fontWeight: 700,
-            color: tier.color,
+            color: '#ffffff',
             letterSpacing: '0.08em'
           }}>
             {tier.label}
@@ -219,14 +220,14 @@ export default function InteractiveReadiness() {
             gridTemplateColumns: '1fr 1fr',
             gap: '10px',
             width: '100%',
-            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
             paddingTop: '16px'
           }}>
             <div style={{
               padding: '10px',
-              background: 'rgba(255, 255, 255, 0.02)',
+              background: 'rgba(255, 255, 255, 0.03)',
               borderRadius: 'var(--radius-sm)',
-              border: '1px solid rgba(255, 255, 255, 0.04)'
+              border: '1px solid rgba(255, 255, 255, 0.06)'
             }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', display: 'block' }}>DAILY LOAD CAP</span>
               <span style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', color: '#fff', fontWeight: 600 }}>
@@ -235,12 +236,12 @@ export default function InteractiveReadiness() {
             </div>
             <div style={{
               padding: '10px',
-              background: 'rgba(255, 255, 255, 0.02)',
+              background: 'rgba(255, 255, 255, 0.03)',
               borderRadius: 'var(--radius-sm)',
-              border: '1px solid rgba(255, 255, 255, 0.04)'
+              border: '1px solid rgba(255, 255, 255, 0.06)'
             }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', display: 'block' }}>HYDRATION QUOTA</span>
-              <span style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontWeight: 600 }}>
+              <span style={{ fontSize: '0.88rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 600 }}>
                 {(2.4 + (100 - score) * 0.012).toFixed(1)} L / Day
               </span>
             </div>

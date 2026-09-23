@@ -1,10 +1,12 @@
-import { Brain, Shield, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Brain, Shield, ExternalLink, ArrowRight } from 'lucide-react';
 
-export default function Footer({ setActivePage }) {
+export default function Footer() {
   return (
     <footer style={{
       backgroundColor: 'rgba(5, 8, 14, 0.95)',
-      borderTop: '1px solid var(--border-subtle)',
+      borderTop: '1px solid var(--border-hairline)',
       padding: '60px 0 30px',
       marginTop: '80px',
       position: 'relative',
@@ -13,7 +15,7 @@ export default function Footer({ setActivePage }) {
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: '40px',
           marginBottom: '50px'
         }}>
@@ -24,7 +26,7 @@ export default function Footer({ setActivePage }) {
                 width: '36px',
                 height: '36px',
                 borderRadius: '10px',
-                background: 'linear-gradient(135deg, #00f2fe 0%, #0284c7 100%)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -36,115 +38,119 @@ export default function Footer({ setActivePage }) {
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.25rem',
                 fontWeight: 900,
-                color: '#fff'
-              }}>FITMIND<span style={{ color: 'var(--cyan-primary)' }}>AI</span></span>
+                color: '#fff',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                FITMIND
+                <span style={{
+                  fontSize: '0.72rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: '#000000',
+                  backgroundColor: '#ffffff',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
+                  padding: '1px 6px',
+                  borderRadius: '4px',
+                  lineHeight: 1.2
+                }}>
+                  AI
+                </span>
+              </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-              The next-generation autonomous athletic intelligence platform. Engineered with deterministic safety, multi-agent LLM reasoning, and real-time biometric adaptation.
+              The next-generation autonomous athletic intelligence platform. Engineered with deterministic safety, multi-agent AI reasoning, and real-time biometric adaptation.
             </p>
             <div style={{ marginTop: '16px', display: 'flex', gap: '10px' }}>
-              <span className="badge-pill badge-emerald" style={{ fontSize: '0.65rem' }}>PRODUCTION AUDITED</span>
-              <span className="badge-pill" style={{ fontSize: '0.65rem' }}>POSTGRESQL 16</span>
+              <span className="pill-tag pill-tag-emerald" style={{ fontSize: '0.65rem' }}>PRODUCTION AUDITED</span>
+              <span className="pill-tag pill-tag-cyan" style={{ fontSize: '0.65rem' }}>DETERMINISTIC SAFETY</span>
             </div>
           </div>
 
           {/* Col 2: Showcase Pages */}
           <div>
-            <h4 style={{ fontSize: '0.95rem', color: '#fff', marginBottom: '16px', letterSpacing: '0.05em' }}>SHOWCASE VIEWS</h4>
+            <h4 style={{ fontSize: '0.92rem', color: '#fff', marginBottom: '16px', letterSpacing: '0.05em' }}>PLATFORM NAVIGATION</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
               <li>
-                <button
-                  onClick={() => { setActivePage('functional'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ color: 'var(--text-secondary)', textAlign: 'left' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--cyan-primary)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                <Link
+                  to="/"
+                  style={{ color: 'var(--text-mid)', textDecoration: 'none', transition: 'color 0.2s' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-mid)'}
                 >
-                  1. Functional Requirements (All-in-One)
-                </button>
+                  1. Platform Overview & Central Cockpit
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => { setActivePage('architecture'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ color: 'var(--text-secondary)', textAlign: 'left' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--cyan-primary)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                <Link
+                  to="/architecture"
+                  style={{ color: 'var(--text-mid)', textDecoration: 'none', transition: 'color 0.2s' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-mid)'}
                 >
-                  2. Multi-Agent Architecture & Tech Stack
-                </button>
+                  2. Multi-Agent Reasoning Architecture
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => { setActivePage('experience'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  style={{ color: 'var(--text-secondary)', textAlign: 'left' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--cyan-primary)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                <Link
+                  to="/modules"
+                  style={{ color: 'var(--text-mid)', textDecoration: 'none', transition: 'color 0.2s' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-mid)'}
                 >
-                  3. Live Experience & Feature Gallery
-                </button>
+                  3. 11 Core Functional Modules
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/experience"
+                  style={{ color: 'var(--text-mid)', textDecoration: 'none', transition: 'color 0.2s' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--cyan-primary)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-mid)'}
+                >
+                  4. Visual Interface Gallery & Timer
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Core Functional Modules */}
+          {/* Col 3: Core Capabilities */}
           <div>
-            <h4 style={{ fontSize: '0.95rem', color: '#fff', marginBottom: '16px', letterSpacing: '0.05em' }}>CORE MODULES</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-              <li>FR-01: Autonomous Onboarding & Biometrics</li>
-              <li>FR-02: Enterprise Single-Use OTP Security</li>
+            <h4 style={{ fontSize: '0.92rem', color: '#fff', marginBottom: '16px', letterSpacing: '0.05em' }}>CORE CAPABILITIES</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: 'var(--text-dim)' }}>
+              <li>FR-01: Autonomous Biometrics Calibration</li>
+              <li>FR-02: Enterprise Single-Use Security</li>
               <li>FR-03: Daily Morning Readiness Engine</li>
-              <li>FR-04: Central Command Dashboard</li>
-              <li>FR-05: Dynamic Workouts & Rest Timers</li>
-              <li>FR-06: 24/7 Multi-Agent Conversational AI</li>
-              <li>FR-07: Precision Macro Fuel & Vault</li>
+              <li>FR-04: Central Command Athlete Dashboard</li>
+              <li>FR-05: Dynamic Workouts & In-Session Timers</li>
+              <li>FR-06: 24/7 Conversational Multi-Agent Coach</li>
+              <li>FR-07: Precision Macro Vault & Fuel Partitioning</li>
             </ul>
           </div>
 
-          {/* Col 4: Production Architecture */}
+          {/* Col 4: Live Application */}
           <div>
-            <h4 style={{ fontSize: '0.95rem', color: '#fff', marginBottom: '16px', letterSpacing: '0.05em' }}>DEVELOPER GATEWAY</h4>
-            <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '12px' }}>
-              Connected to local FastAPI backend on port 8000:
+            <h4 style={{ fontSize: '0.92rem', color: '#fff', marginBottom: '16px', letterSpacing: '0.05em' }}>LIVE ACCESS</h4>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-mid)', marginBottom: '14px', lineHeight: 1.5 }}>
+              Launch the complete athlete companion portal in your browser:
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <a
-                href="http://localhost:8000/docs"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '0.82rem',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--cyan-primary)'
-                }}
-              >
-                <span>Interactive Swagger UI</span>
-                <ExternalLink size={12} />
-              </a>
-              <a
-                href="http://localhost:8000/health"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '0.82rem',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--emerald-accent)'
-                }}
-              >
-                <span>Backend Health Probe</span>
-                <ExternalLink size={12} />
-              </a>
-            </div>
+            <a
+              href="https://100.63.74.53.sslip.io/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-glass-secondary"
+              style={{ padding: '8px 16px', fontSize: '0.82rem', display: 'inline-flex' }}
+            >
+              <span>Launch Live App</span>
+              <ExternalLink size={13} style={{ color: '#ffffff' }} />
+            </a>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div style={{
-          borderTop: '1px solid var(--border-subtle)',
+          borderTop: '1px solid var(--border-hairline)',
           paddingTop: '24px',
           display: 'flex',
           justifyContent: 'space-between',
@@ -152,15 +158,15 @@ export default function Footer({ setActivePage }) {
           flexWrap: 'wrap',
           gap: '16px',
           fontSize: '0.8rem',
-          color: 'var(--text-muted)'
+          color: 'var(--text-dim)'
         }}>
           <div>
-            © {new Date().getFullYear()} FitMind AI. All rights reserved. Built with React 19, Vite, and FastAPI.
+            © {new Date().getFullYear()} FitMind AI. All rights reserved. Autonomous Athletic Operating System.
           </div>
           <div style={{ display: 'flex', gap: '16px' }}>
             <span>Zero Data Fabrication</span>
             <span>Deterministic Safety Verified</span>
-            <span>LangGraph Multi-Agent</span>
+            <span>Sub-200ms Decision Engine</span>
           </div>
         </div>
       </div>

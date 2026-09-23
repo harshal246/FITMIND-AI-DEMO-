@@ -1,155 +1,496 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
-  Play, Sliders, Cpu, Compass, ArrowRight, CheckCircle2, 
-  Layers, Shield, Activity, Flame, HeartPulse, Sparkles, ExternalLink
+  Sliders, Cpu, ArrowRight, CheckCircle2, 
+  Layers, Shield, Activity, Flame, HeartPulse, Sparkles, ExternalLink,
+  Zap, Brain, Clock, BarChart3, Database, ChevronRight, PlayCircle, ShieldCheck, Play
 } from 'lucide-react';
+import VideoWalkthroughPlayer from '../components/VideoWalkthroughPlayer';
 
-import VideoPlayerCard from '../components/VideoPlayerCard';
-import InteractiveReadiness from '../components/InteractiveReadiness';
-import InteractiveCoach from '../components/InteractiveCoach';
-import FunctionalityCardsDeck from '../components/FunctionalityCardsDeck';
+export default function FunctionalRequirementsPage() {
+  const [heroMediaMode, setHeroMediaMode] = useState('video'); // 'video' | 'screenshot'
 
-export default function FunctionalRequirementsPage({ setActivePage }) {
+  const metrics = [
+    { value: '11', label: 'Core Functional Modules', detail: 'FR-01 through FR-11' },
+    { value: '8', label: 'Specialized AI Agents', detail: 'Coordinated Multi-Agent Mesh' },
+    { value: '< 180ms', label: 'Inference Latency', detail: 'Sub-200ms Deterministic Response' },
+    { value: '100%', label: 'Physiological Safety', detail: 'Zero Hallucination Guarantee' },
+  ];
+
+  const pillars = [
+    {
+      num: '01',
+      icon: HeartPulse,
+      title: 'Daily Recovery & Readiness',
+      subtitle: 'Sleep, HRV & Energy Tracking',
+      description: 'Calculates your daily readiness score (0–100%) from your sleep quality, resting heart rate, and muscle soreness to recommend the right workout intensity.'
+    },
+    {
+      num: '02',
+      icon: Brain,
+      title: '24/7 Personal AI Coach',
+      subtitle: 'Smart Workouts & Nutrition Advice',
+      description: 'An intelligent athletic coach that answers fitness questions, swaps busy gym machines, adjusts daily macros, and ensures safe form in real time.'
+    },
+    {
+      num: '03',
+      icon: Zap,
+      title: 'Smart Workout Tracker & Timer',
+      subtitle: 'Progressive Overload & Pacing',
+      description: 'Active workout tracking with automated rest interval countdowns, audio voice cues, and smart weight increments to build strength week over week.'
+    }
+  ];
+
+  const exploreRoutes = [
+    {
+      to: '/architecture',
+      badge: 'SYSTEM DESIGN',
+      icon: Cpu,
+      title: 'Multi-Agent Reasoning Architecture',
+      description: 'Inspect the multi-agent decision flow, physiological safety guardrails, and real-time state synchronization.'
+    },
+    {
+      to: '/modules',
+      badge: 'SPECIFICATIONS',
+      icon: Sliders,
+      title: '11 Core Functional Modules',
+      description: 'Full architectural breakdown of FR-01 through FR-11 with live UI snapshots, deterministic logic guardrails, and validation rules.'
+    },
+    {
+      to: '/experience',
+      badge: 'VISUAL ASSETS & DEMO',
+      icon: PlayCircle,
+      title: 'Athlete Experience & Gallery',
+      description: 'Test the interactive workout rest timer with audio synthesis and inspect all 6 high-resolution production interface captures.'
+    }
+  ];
+
   return (
-    <div style={{ paddingBottom: '100px' }}>
-      {/* HERO SECTION WITH 3D COCKPIT MOCKUP */}
-      <section style={{ padding: '75px 0 60px', textAlign: 'center', position: 'relative' }}>
+    <div style={{ paddingBottom: '90px' }}>
+      {/* HERO SECTION */}
+      <section style={{ padding: '60px 0 40px', textAlign: 'center', position: 'relative' }}>
         <div className="container">
-          {/* Micro-chip Header */}
+          {/* Release Chip */}
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '22px' }}>
-            <span className="pill-tag pill-tag-cyan">⚡ THE AUTONOMOUS ATHLETIC OPERATING SYSTEM</span>
-            <span className="pill-tag">V2.5 AUDITED</span>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 16px',
+              borderRadius: 'var(--radius-full)',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              fontSize: '0.74rem',
+              fontFamily: 'var(--font-mono)',
+              color: '#ffffff',
+              fontWeight: 600,
+              letterSpacing: '0.05em'
+            }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ffffff', boxShadow: '0 0 8px rgba(255, 255, 255, 0.8)' }} />
+              FITMIND AI · INTELLIGENT FITNESS & MINDFUL LIVING
+            </span>
           </div>
 
-          <h1 className="hero-headline" style={{ maxWidth: '1050px', margin: '0 auto 24px' }}>
-            INTELLIGENCE FOR
+          {/* Hero Headline */}
+          <h1 className="hero-headline" style={{ maxWidth: '980px', margin: '0 auto 20px', letterSpacing: '-0.035em' }}>
+            Your Intelligent AI Fitness Coach.
             <br />
             <span className="hero-gradient-text">
-              PEAK HUMAN PERFORMANCE.
+              Smart Workouts, Nutrition & Recovery.
             </span>
           </h1>
 
+          {/* Hero Subtitle */}
           <p style={{
-            fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+            fontSize: 'clamp(1rem, 1.8vw, 1.18rem)',
             color: 'var(--text-mid)',
-            maxWidth: '780px',
-            margin: '0 auto 36px',
+            maxWidth: '740px',
+            margin: '0 auto 32px',
             lineHeight: 1.6
           }}>
-            A unified mind-body athletic platform engineered with deterministic physiological guardrails, 
-            sub-200ms multi-agent reasoning, and zero data fabrication.
+            FitMind AI designs your personalized workout routines, tracks progressive overload, balances daily meals and macros, and adapts to your body's recovery in real time.
           </p>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap', marginBottom: '40px' }}>
-            <a href="#cinema-hub" className="btn-titanium-primary">
-              <Play size={16} />
-              <span>Watch Cinema Presentations</span>
-            </a>
-            <a href="#functional-grid" className="btn-glass-secondary">
-              <Sliders size={16} />
-              <span>Explore 11 Functional Modules</span>
-            </a>
+          {/* Media Mode Selector Switch */}
+          <div style={{
+            display: 'inline-flex',
+            padding: '4px',
+            borderRadius: 'var(--radius-full)',
+            backgroundColor: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
+            marginBottom: '28px'
+          }}>
+            <button
+              onClick={() => setHeroMediaMode('video')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 20px',
+                borderRadius: 'var(--radius-full)',
+                fontSize: '0.84rem',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                backgroundColor: heroMediaMode === 'video' ? '#ffffff' : 'transparent',
+                color: heroMediaMode === 'video' ? '#000000' : 'var(--text-mid)',
+                boxShadow: heroMediaMode === 'video' ? '0 2px 15px rgba(255, 255, 255, 0.3)' : 'none',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <Play size={14} fill={heroMediaMode === 'video' ? '#000000' : 'currentColor'} />
+              <span>Full Video Walkthrough</span>
+            </button>
+            <button
+              onClick={() => setHeroMediaMode('screenshot')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 20px',
+                borderRadius: 'var(--radius-full)',
+                fontSize: '0.84rem',
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                backgroundColor: heroMediaMode === 'screenshot' ? '#ffffff' : 'transparent',
+                color: heroMediaMode === 'screenshot' ? '#000000' : 'var(--text-mid)',
+                boxShadow: heroMediaMode === 'screenshot' ? '0 2px 15px rgba(255, 255, 255, 0.3)' : 'none',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <Layers size={14} />
+              <span>Cockpit Screenshot</span>
+            </button>
           </div>
 
-          {/* 3D HERO PERSPECTIVE MOCKUP WITH FLOATING BIOMETRIC BADGES */}
-          <div className="hero-mockup-perspective" style={{ maxWidth: '1120px', margin: '0 auto' }}>
-            {/* Floating Badge 1 (Top Left) */}
-            <div className="floating-biometric-pill" style={{ top: '-15px', left: '20px', animationDelay: '0s' }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--emerald-primary)', boxShadow: '0 0 10px var(--emerald-primary)' }} />
-              <span>94% Morning Readiness · Prime State</span>
-            </div>
+          {/* FRAMED HERO APPLICATION COCKPIT / VIDEO PLAYER */}
+          <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+            {heroMediaMode === 'video' ? (
+              <VideoWalkthroughPlayer />
+            ) : (
+              <div style={{
+                borderRadius: 'var(--radius-lg)',
+                overflow: 'hidden',
+                border: '1px solid rgba(255, 255, 255, 0.14)',
+                boxShadow: '0 30px 80px -15px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 255, 255, 0.04)',
+                backgroundColor: '#050507'
+              }}>
+                {/* Window Top Bar */}
+                <div style={{
+                  height: '42px',
+                  backgroundColor: 'rgba(15, 15, 18, 0.95)',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0 16px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.74rem'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'rgba(255, 255, 255, 0.35)' }} />
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'rgba(255, 255, 255, 0.22)' }} />
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'rgba(255, 255, 255, 0.12)' }} />
+                    <span style={{ marginLeft: '12px', color: 'var(--text-mid)', fontWeight: 500 }}>
+                      FitMind AI Cockpit · Central Command Telemetry
+                    </span>
+                  </div>
 
-            {/* Floating Badge 2 (Top Right) */}
-            <div className="floating-biometric-pill" style={{ top: '-15px', right: '20px', animationDelay: '1.2s' }}>
-              <Sparkles size={16} color="var(--cyan-primary)" />
-              <span>Auto-Overload: +2.5kg Bench Target</span>
-            </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', color: 'var(--text-secondary)' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ffffff', boxShadow: '0 0 6px rgba(255, 255, 255, 0.8)' }} />
+                      <span style={{ color: '#ffffff', fontWeight: 600 }}>91% Optimal Readiness</span>
+                    </span>
+                    <span style={{ color: 'rgba(255, 255, 255, 0.15)' }}>|</span>
+                    <span style={{ color: 'var(--text-dim)' }}>Alex Patel (Hypertrophy Block)</span>
+                  </div>
+                </div>
 
-            {/* Floating Badge 3 (Bottom Left) */}
-            <div className="floating-biometric-pill" style={{ bottom: '25px', left: '30px', animationDelay: '2.4s' }}>
-              <Activity size={16} color="var(--violet-primary)" />
-              <span>185g / 190g Daily Nitrogen Balance</span>
-            </div>
+                {/* High-Resolution Production Screenshot */}
+                <div style={{ position: 'relative', width: '100%', backgroundColor: '#000000' }}>
+                  <img
+                    src="/assets/01_dashboard.png"
+                    alt="FitMind AI Central Command Dashboard"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      imageRendering: '-webkit-optimize-contrast'
+                    }}
+                  />
+                </div>
 
-            {/* Central High-Resolution Screen Frame */}
-            <div className="hero-mockup-screen">
-              <img
-                src="/assets/01_dashboard.png"
-                alt="FitMind AI Central Command Dashboard"
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-              />
-            </div>
+                {/* Bottom Live Telemetry Strip */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                  gap: '16px',
+                  padding: '18px 24px',
+                  backgroundColor: 'rgba(10, 10, 13, 0.95)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                  textAlign: 'left'
+                }}>
+                  <div>
+                    <div style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', letterSpacing: '0.06em' }}>
+                      AUTONOMIC RECOVERY
+                    </div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>
+                      91% Peak Readiness
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', letterSpacing: '0.06em' }}>
+                      MULTI-AGENT ORCHESTRATION
+                    </div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>
+                      8 Specialized AI Agents
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', letterSpacing: '0.06em' }}>
+                      CALORIC PERIODIZATION
+                    </div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>
+                      2,930 kcal · 110g Protein
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)', letterSpacing: '0.06em' }}>
+                      PHYSIOLOGICAL SAFETY
+                    </div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff', marginTop: '2px' }}>
+                      Deterministic Guardrails
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* DUAL CINEMA THEATER HUB */}
-      <section id="cinema-hub" style={{ padding: '60px 0 80px' }}>
+      {/* METRICS & BENCHMARK STRIP */}
+      <section style={{ padding: '20px 0 45px' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-            <span className="pill-tag pill-tag-violet" style={{ marginBottom: '12px' }}>
-              OFFICIAL CINEMA PRESENTATION
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '16px',
+            maxWidth: '1160px',
+            margin: '0 auto'
+          }}>
+            {metrics.map((m, idx) => (
+              <div 
+                key={idx}
+                className="obsidian-card"
+                style={{
+                  padding: '24px 20px',
+                  textAlign: 'center',
+                  background: 'rgba(15, 15, 18, 0.65)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)'
+                }}
+              >
+                <div style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '2.2rem',
+                  fontWeight: 900,
+                  color: '#ffffff',
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1
+                }}>
+                  {m.value}
+                </div>
+                <div style={{
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  color: '#ffffff',
+                  marginTop: '8px'
+                }}>
+                  {m.label}
+                </div>
+                <div style={{
+                  fontSize: '0.74rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: 'var(--text-dim)',
+                  marginTop: '4px'
+                }}>
+                  {m.detail}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CORE VALUE PILLARS */}
+      <section style={{ padding: '30px 0 50px' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span className="pill-tag" style={{ marginBottom: '10px' }}>
+              CORE PLATFORM PILLARS
             </span>
-            <h2 className="section-hero-title">Dual Cinema Theater Showcase</h2>
-            <p className="section-hero-desc">
-              Widescreen display monitors pre-configured to host the platform tour and in-gym workflow demo videos.
+            <h2 className="section-hero-title" style={{ marginTop: '8px' }}>
+              Complete Fitness, Nutrition & Recovery
+            </h2>
+            <p className="section-hero-desc" style={{ maxWidth: '640px', margin: '0 auto' }}>
+              How FitMind AI turns your body's daily signals into personalized, effective workout and nutrition plans.
             </p>
           </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
-            gap: '32px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px',
+            maxWidth: '1160px',
+            margin: '0 auto'
           }}>
-            <VideoPlayerCard
-              slotNumber={1}
-              title="System Architecture & Multi-Agent Tour"
-              subtitle="Full walkthrough of autonomous onboarding, AI coach reasoning, and central command telemetry."
-              videoSrc="/videos/product_tour.mp4"
-              expectedFileName="product_tour.mp4"
-              fallbackPoster="/assets/01_dashboard.png"
-              duration="03:45"
-              tags={["4K 60FPS", "AI ARCHITECTURE", "SYSTEM TOUR"]}
-            />
+            {pillars.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <div 
+                  key={idx} 
+                  className="obsidian-card" 
+                  style={{
+                    padding: '32px 28px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    border: '1px solid rgba(255, 255, 255, 0.09)',
+                    background: 'rgba(15, 15, 18, 0.65)'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                      <div style={{
+                        width: '44px',
+                        height: '44px',
+                        borderRadius: '12px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.18)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#ffffff'
+                      }}>
+                        <Icon size={20} />
+                      </div>
+                      <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        color: 'var(--text-dim)'
+                      }}>
+                        {pillar.num}
+                      </span>
+                    </div>
 
-            <VideoPlayerCard
-              slotNumber={2}
-              title="Athlete In-Gym Workflow Demo"
-              subtitle="Live demonstration of morning readiness check-in, set-by-set workout execution, and recovery tracking."
-              videoSrc="/videos/athlete_workflow.mp4"
-              expectedFileName="athlete_workflow.mp4"
-              fallbackPoster="/assets/03_workouts.png"
-              duration="02:30"
-              tags={["4K 60FPS", "ATHLETE WORKFLOW", "REST TIMERS"]}
-            />
+                    <div style={{
+                      fontSize: '0.72rem',
+                      fontFamily: 'var(--font-mono)',
+                      color: 'var(--color-silver)',
+                      fontWeight: 700,
+                      letterSpacing: '0.06em'
+                    }}>
+                      {pillar.subtitle.toUpperCase()}
+                    </div>
+                    <h3 style={{ fontSize: '1.22rem', fontWeight: 700, color: '#ffffff', margin: '6px 0 12px' }}>
+                      {pillar.title}
+                    </h3>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>
+                      {pillar.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* INTERACTIVE BIOMETRIC SIMULATORS */}
-      <section style={{ padding: '40px 0 80px' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
-            <span className="pill-tag pill-tag-emerald" style={{ marginBottom: '12px' }}>
-              LIVE BIOMETRIC & AI SIMULATION
+      {/* ROUTE DISCOVERY & SHOWCASE NAVIGATION HUB */}
+      <section style={{ padding: '30px 0 50px' }}>
+        <div className="container" style={{ maxWidth: '1160px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span className="pill-tag" style={{ marginBottom: '10px' }}>
+              DEEP-DIVE EXPLORATION
             </span>
-            <h2 className="section-hero-title">Interactive Engine Playground</h2>
-            <p className="section-hero-desc">
-              Experience the mathematical models and multi-agent systems powering FitMind AI directly.
+            <h2 className="section-hero-title" style={{ marginTop: '8px' }}>
+              Explore FitMind AI by Section
+            </h2>
+            <p className="section-hero-desc" style={{ maxWidth: '600px', margin: '0 auto' }}>
+              Navigate to dedicated views for technical specifications, multi-agent architecture, and visual interface captures.
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            <InteractiveReadiness />
-            <InteractiveCoach />
-          </div>
-        </div>
-      </section>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '24px'
+          }}>
+            {exploreRoutes.map((route, idx) => {
+              const Icon = route.icon;
+              return (
+                <Link
+                  key={idx}
+                  to={route.to}
+                  className="obsidian-card glass-panel-interactive"
+                  style={{
+                    padding: '30px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    border: '1px solid rgba(255, 255, 255, 0.09)',
+                    background: 'rgba(15, 15, 18, 0.65)'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+                      <span className="pill-tag" style={{ fontSize: '0.68rem' }}>
+                        {route.badge}
+                      </span>
+                      <div style={{
+                        width: '36px',
+                        height: '36px',
+                        borderRadius: '50%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#ffffff'
+                      }}>
+                        <Icon size={18} />
+                      </div>
+                    </div>
 
-      {/* 11 FUNCTIONAL REQUIREMENTS SHOWCASE DECK (ONE-BY-ONE & GRID) */}
-      <section id="functional-grid" style={{ padding: '50px 0 80px' }}>
-        <div className="container">
-          <FunctionalityCardsDeck />
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: '10px' }}>
+                      {route.title}
+                    </h3>
+                    <p style={{ fontSize: '0.86rem', color: 'var(--text-mid)', lineHeight: 1.55 }}>
+                      {route.description}
+                    </p>
+                  </div>
+
+                  <div style={{
+                    marginTop: '22px',
+                    paddingTop: '14px',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.07)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontSize: '0.8rem',
+                    fontFamily: 'var(--font-mono)',
+                    color: '#ffffff',
+                    fontWeight: 600
+                  }}>
+                    <span>Open Section</span>
+                    <ChevronRight size={16} />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>

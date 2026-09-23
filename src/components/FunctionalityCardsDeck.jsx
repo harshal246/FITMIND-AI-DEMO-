@@ -16,17 +16,17 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Instant baseline expenditure and physiological partitioning without credit cards.',
       category: 'ONBOARDING & BIOMETRICS',
       icon: Compass,
-      color: '#38bdf8',
+      color: '#ffffff',
       screenshot: '/assets/01_dashboard.png',
-      endpoint: 'POST /api/v1/auth/onboarding',
+      executionScope: 'Autonomous Intake & Partitioning',
       graphTitle: 'CALORIC EXPENDITURE & TDEE PARTITION GRAPH',
       graphType: 'bars',
       chartData: [
-        { label: 'BMR (Basal)', value: 1780, max: 3000, color: '#64748b' },
-        { label: 'NEAT (Activity)', value: 450, max: 3000, color: '#38bdf8' },
-        { label: 'TEF (Digestive)', value: 240, max: 3000, color: '#a855f7' },
-        { label: 'EAT (Training)', value: 520, max: 3000, color: '#10b981' },
-        { label: 'TOTAL TDEE', value: 2990, max: 3000, color: '#f59e0b' }
+        { label: 'BMR (Basal)', value: 1780, max: 3000, color: '#52525b' },
+        { label: 'NEAT (Activity)', value: 450, max: 3000, color: '#a1a1aa' },
+        { label: 'TEF (Digestive)', value: 240, max: 3000, color: '#d4d4d8' },
+        { label: 'EAT (Training)', value: 520, max: 3000, color: '#e4e4e7' },
+        { label: 'TOTAL TDEE', value: 2990, max: 3000, color: '#ffffff' }
       ],
       inputs: ['Age, Weight (kg), Height (cm)', 'Target Goal (Hypertrophy / Cutting / Recomp)', 'Gym Equipment & Training Age'],
       outputs: ['Personalized Baseline Caloric Target', 'Macronutrient Partitions (P / C / F)', 'Periodization Phase Roadmap'],
@@ -38,21 +38,21 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Cryptographically secure passwordless sign-in with rotating token pairs.',
       category: 'ENTERPRISE SECURITY',
       icon: Shield,
-      color: '#f43f5e',
+      color: '#ffffff',
       screenshot: '/assets/debug_state.png',
-      endpoint: 'POST /api/v1/auth/verify-otp',
+      executionScope: 'Cryptographic Security & Verification',
       graphTitle: 'SECURITY TIMELINE & TOKEN ROTATION GRAPH',
       graphType: 'timeline',
       timelineSteps: [
-        { step: '0s', label: 'OTP Requested', status: 'HMAC-SHA256 6-digit code generated' },
-        { step: '+1s', label: 'Email Dispatched', status: 'Delivered via secure SMTP gateway' },
-        { step: '+45s', label: 'Verified & Consumed', status: 'Single-use code burned atomically in Redis' },
-        { step: '+15m', label: 'JWT Token Expiry', status: 'Access token expires; triggers silent refresh' },
-        { step: '+7d', label: 'Refresh Rotation', status: 'Rotated with replay attack invalidation' }
+        { step: '0s', label: 'OTP Requested', status: 'Cryptographic 6-digit one-time code generated' },
+        { step: '+1s', label: 'Email Dispatched', status: 'Delivered via secure outbound gateway' },
+        { step: '+45s', label: 'Verified & Consumed', status: 'Single-use code burned atomically upon entry' },
+        { step: '+15m', label: 'Session Expiry', status: 'Access token expires; triggers silent background rotation' },
+        { step: '+7d', label: 'Credential Refresh', status: 'Rotated with anti-replay invalidation' }
       ],
       inputs: ['Athlete Email Address', '6-Digit One-Time Verification Code'],
-      outputs: ['Cryptographically Signed JWT Access Token (15-min)', 'Secure HttpOnly Refresh Token (7-day with rotation)', 'Authenticated Session Context'],
-      algorithm: 'Cryptographic HMAC-SHA256 one-time code generation. Atomic Redis check-and-expire prevents race conditions and replay attacks.'
+      outputs: ['Cryptographically Signed Access Token', 'Secure Rotating Refresh Credential', 'Authenticated Session Context'],
+      algorithm: 'Cryptographic HMAC-SHA256 one-time code generation. Atomic check-and-expire prevents race conditions and replay attacks.'
     },
     {
       id: 'FR-03',
@@ -60,9 +60,9 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Dynamic autonomic recovery calculations adjusting volume and RPE daily.',
       category: 'AUTONOMIC RECOVERY',
       icon: Activity,
-      color: '#10b981',
+      color: '#ffffff',
       screenshot: '/assets/01_dashboard.png',
-      endpoint: 'POST /api/v1/recovery/checkin',
+      executionScope: 'Circadian Recovery Calibration',
       graphTitle: '7-DAY HRV & READINESS SCORE TRAJECTORY GRAPH',
       graphType: 'line',
       trendPoints: [
@@ -84,20 +84,20 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Consolidated real-time cockpit tracking volume, hydration, and training phase.',
       category: 'CENTRAL COCKPIT',
       icon: Layers,
-      color: '#38bdf8',
+      color: '#ffffff',
       screenshot: '/assets/01_dashboard.png',
-      endpoint: 'GET /api/v1/dashboard/today',
+      executionScope: 'Real-Time Biometric Ledger',
       graphTitle: 'DAILY TARGET COMPLETION TELEMETRY GAUGE',
       graphType: 'gauges',
       gauges: [
-        { name: 'READINESS', pct: 94, color: '#10b981', note: 'Prime State' },
-        { name: 'WORKOUT VOLUME', pct: 100, color: '#38bdf8', note: '22 Sets Logged' },
-        { name: 'CALORIE GOAL', pct: 88, color: '#f59e0b', note: '2,640 / 3,000 kcal' },
-        { name: 'HYDRATION', pct: 85, color: '#00f0ff', note: '3.4L / 4.0L Target' }
+        { name: 'READINESS', pct: 94, color: '#ffffff', note: 'Prime State' },
+        { name: 'WORKOUT VOLUME', pct: 100, color: '#e4e4e7', note: '22 Sets Logged' },
+        { name: 'CALORIE GOAL', pct: 88, color: '#a1a1aa', note: '2,640 / 3,000 kcal' },
+        { name: 'HYDRATION', pct: 85, color: '#71717a', note: '3.4L / 4.0L Target' }
       ],
       inputs: ['Active Athlete Session', 'Live Telemetry Date (client timezone synchronized)'],
       outputs: ['Daily Training Phase Card', 'Calorie & Macro Ring Progress', 'Hydration Target vs Logged', 'Weekly 7-Day Completion Heatmap'],
-      algorithm: 'Aggregates current athlete daily ledger via single optimized join query; zero client-side timezone drift.'
+      algorithm: 'Aggregates current athlete daily ledger with synchronized timezone calibration; zero client-side timezone drift.'
     },
     {
       id: 'FR-05',
@@ -105,9 +105,9 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'In-gym logging with automated progressive overload and audio countdown clock.',
       category: 'TRAINING EXECUTION',
       icon: Dumbbell,
-      color: '#f59e0b',
+      color: '#ffffff',
       screenshot: '/assets/03_workouts.png',
-      endpoint: 'POST /api/v1/workouts/log',
+      executionScope: 'Live Gym Overload Tracking',
       graphTitle: 'AUTO-PROGRESSIVE OVERLOAD LOAD PROGRESSION GRAPH',
       graphType: 'overload',
       overloadData: [
@@ -124,24 +124,24 @@ export default function FunctionalityCardsDeck() {
     {
       id: 'FR-06',
       title: '24/7 Conversational Multi-Agent Coach',
-      subtitle: 'Stateful LangGraph agent delivering verified biomechanical swaps and form cues.',
+      subtitle: 'Autonomous AI coach delivering verified biomechanical swaps and form cues.',
       category: 'AI AGENTIC CORE',
       icon: Brain,
-      color: '#a855f7',
+      color: '#ffffff',
       screenshot: '/assets/04_coach.png',
-      endpoint: 'POST /api/v1/coach/chat',
+      executionScope: 'Multi-Agent Biomechanical Consultation',
       graphTitle: 'MULTI-AGENT INFERENCE LATENCY & ROUTING GRAPH',
       graphType: 'latency',
       latencyData: [
-        { stage: 'Safety Guardrail', timeMs: 14, color: '#f43f5e' },
-        { stage: 'LLM Task Planner', timeMs: 78, color: '#a855f7' },
-        { stage: 'Entity Resolver (pgvector)', timeMs: 32, color: '#f59e0b' },
-        { stage: 'Pydantic Validator', timeMs: 8, color: '#10b981' },
-        { stage: 'Transactional Dispatch', timeMs: 22, color: '#38bdf8' }
+        { stage: 'Safety Guardrail', timeMs: 14, color: '#52525b' },
+        { stage: 'Task Planner', timeMs: 78, color: '#a1a1aa' },
+        { stage: 'Catalog Resolver', timeMs: 32, color: '#d4d4d8' },
+        { stage: 'Safety Validator', timeMs: 8, color: '#e4e4e7' },
+        { stage: 'State Synchronization', timeMs: 22, color: '#ffffff' }
       ],
       inputs: ['Athlete Natural Language Query (Voice or Text)', 'Current Biometric State & Training Context'],
       outputs: ['Verified Conversational Response', 'Actionable UI Cards (Exercise Swaps, Macro Adjustments)', 'Audit-Logged Agent Reasoning Trace'],
-      algorithm: 'Deterministic guardrails enforce zero hallucination of exercises or foods. Pydantic schemas validate all payload dispatches.'
+      algorithm: 'Deterministic guardrails enforce zero hallucination of exercises or foods. Rigid validation schemas verify all payload dispatches.'
     },
     {
       id: 'FR-07',
@@ -149,9 +149,9 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Calorie periodization and dynamic carb cycling calibrated to training fatigue.',
       category: 'NUTRITIONAL SCIENCE',
       icon: Apple,
-      color: '#f43f5e',
+      color: '#ffffff',
       screenshot: '/assets/05_nutrition.png',
-      endpoint: 'GET /api/v1/nutrition/today',
+      executionScope: 'Dynamic Nutritional Periodization',
       graphTitle: 'TRAINING DAY VS REST DAY MACRO PARTITION GRAPH',
       graphType: 'macros',
       macroSplits: {
@@ -168,9 +168,9 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Tracks localized muscular fatigue decay curves to prevent overuse injuries.',
       category: 'FATIGUE RECOVERY',
       icon: Flame,
-      color: '#10b981',
+      color: '#ffffff',
       screenshot: '/assets/06_progress.png',
-      endpoint: 'GET /api/v1/recovery/status',
+      executionScope: 'Localized Muscle Remodeling',
       graphTitle: '48H-72H MUSCLE PROTEIN REPAIR DECAY CURVE GRAPH',
       graphType: 'decay',
       decayHours: [
@@ -190,9 +190,9 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Biometric progression curves, volume trajectories, and milestone PR unlocks.',
       category: 'ANALYTICS & PRs',
       icon: Award,
-      color: '#38bdf8',
+      color: '#ffffff',
       screenshot: '/assets/06_progress.png',
-      endpoint: 'GET /api/v1/progress/summary',
+      executionScope: 'Estimated 1RM Progression Modeling',
       graphTitle: '12-WEEK ESTIMATED 1RM COMPOUND TRAJECTORY GRAPH',
       graphType: 'strength',
       lifts: [
@@ -211,9 +211,9 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Constraint-driven calendar generator preventing spinal loading overlap.',
       category: 'PERIODIZATION',
       icon: Calendar,
-      color: '#f59e0b',
+      color: '#ffffff',
       screenshot: '/assets/07_exercises.png',
-      endpoint: 'GET /api/v1/schedules/weekly',
+      executionScope: 'Spinal Load Constraint Scheduling',
       graphTitle: '7-DAY SPLIT VOLUME DISTRIBUTION GRAPH',
       graphType: 'split',
       scheduleDays: [
@@ -235,20 +235,20 @@ export default function FunctionalityCardsDeck() {
       subtitle: 'Background cron triggers delivering timely meal nudges and 1-tap check-ins.',
       category: 'ALERTS & CRON',
       icon: Bell,
-      color: '#10b981',
+      color: '#ffffff',
       screenshot: '/assets/debug_state.png',
-      endpoint: 'POST /api/v1/notifications/preferences',
+      executionScope: 'Localized Timezone Notifications',
       graphTitle: '24-HOUR AUTOMATED CRON DISPATCH TIMELINE GRAPH',
       graphType: 'dispatch',
       dispatches: [
-        { time: '07:00 AM', channel: 'WhatsApp', msg: 'Morning Readiness Check-In Nudge (1-Tap Link)' },
-        { time: '12:30 PM', channel: 'Email', msg: 'Post-Lunch Protein Target & Hydration Progress' },
-        { time: '05:00 PM', channel: 'WhatsApp', msg: 'Workout Readiness Reminder & Set Overload Target' },
-        { time: '09:30 PM', channel: 'WhatsApp', msg: 'Nightly Macro Summary & Sleep Optimization Window' }
+        { time: '07:00 AM', channel: 'Notification', msg: 'Morning Readiness Check-In Nudge (1-Tap Link)' },
+        { time: '12:30 PM', channel: 'Digest', msg: 'Post-Lunch Protein Target & Hydration Progress' },
+        { time: '05:00 PM', channel: 'Notification', msg: 'Workout Readiness Reminder & Set Overload Target' },
+        { time: '09:30 PM', channel: 'Notification', msg: 'Nightly Macro Summary & Sleep Optimization Window' }
       ],
       inputs: ['Notification Preferences', 'Target Meal Timings', 'Timezone'],
       outputs: ['Scheduled Background Cron Triggers', 'WhatsApp & Email Reminder Dispatches', 'Instant One-Tap Check-In Links'],
-      algorithm: 'Async task scheduler running localized timezone cron triggers with exponential backoff.'
+      algorithm: 'Async task scheduler running localized timezone alerts with exponential backoff.'
     }
   ];
 
@@ -264,127 +264,149 @@ export default function FunctionalityCardsDeck() {
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-      {/* Top Header Controls */}
+    <div>
+      {/* View Switcher & Controls */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '28px',
+        marginBottom: '20px',
         flexWrap: 'wrap',
         gap: '16px'
       }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <span className="pill-tag pill-tag-cyan">SYSTEM CAPABILITIES // 11 CORE MODULES</span>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
-              {viewMode === 'one-by-one' ? `DISPLAYING CARD 0${currentIndex + 1} OF 11` : 'ALL 11 CARDS'}
-            </span>
-          </div>
-          <h3 style={{ fontSize: '1.7rem', fontWeight: 800, color: '#fff', margin: 0 }}>
-            Functional Requirements Showcase Deck
-          </h3>
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-mid)', marginTop: '4px' }}>
-            Inspect each functionality one-by-one with its visual data graph, mathematical algorithm, and live interface capture.
-          </p>
-        </div>
-
-        {/* View Mode Toggle & Next/Prev Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {viewMode === 'one-by-one' && (
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <button
-                onClick={prevCard}
-                className="btn-glass-secondary"
-                style={{ padding: '8px 14px', borderRadius: 'var(--radius-full)' }}
-                aria-label="Previous card"
-              >
-                <ChevronLeft size={18} />
-                <span style={{ fontSize: '0.82rem' }}>Prev</span>
-              </button>
-              <button
-                onClick={nextCard}
-                className="btn-titanium-primary"
-                style={{ padding: '8px 16px', borderRadius: 'var(--radius-full)' }}
-                aria-label="Next card"
-              >
-                <span style={{ fontSize: '0.82rem' }}>Next Card</span>
-                <ChevronRight size={18} />
-              </button>
+        {/* Navigation Buttons (for One-by-One mode) */}
+        {viewMode === 'one-by-one' && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <button
+              onClick={prevCard}
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff'
+              }}
+              aria-label="Previous Module"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.8rem',
+              color: '#ffffff',
+              fontWeight: 700,
+              padding: '6px 14px',
+              borderRadius: 'var(--radius-full)',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}>
+              MODULE {currentIndex + 1 < 10 ? `0${currentIndex + 1}` : currentIndex + 1} / {functionalities.length}
             </div>
-          )}
-
-          <div style={{
-            display: 'flex',
-            backgroundColor: 'rgba(255, 255, 255, 0.04)',
-            padding: '3px',
-            borderRadius: 'var(--radius-full)',
-            border: '1px solid rgba(255, 255, 255, 0.08)'
-          }}>
             <button
-              onClick={() => setViewMode('one-by-one')}
+              onClick={nextCard}
               style={{
-                padding: '6px 14px',
-                borderRadius: 'var(--radius-full)',
-                fontSize: '0.78rem',
-                fontFamily: 'var(--font-mono)',
-                backgroundColor: viewMode === 'one-by-one' ? '#ffffff' : 'transparent',
-                color: viewMode === 'one-by-one' ? '#000000' : 'var(--text-mid)',
-                fontWeight: viewMode === 'one-by-one' ? 700 : 500
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff'
               }}
+              aria-label="Next Module"
             >
-              One-by-One
-            </button>
-            <button
-              onClick={() => setViewMode('grid')}
-              style={{
-                padding: '6px 14px',
-                borderRadius: 'var(--radius-full)',
-                fontSize: '0.78rem',
-                fontFamily: 'var(--font-mono)',
-                backgroundColor: viewMode === 'grid' ? '#ffffff' : 'transparent',
-                color: viewMode === 'grid' ? '#000000' : 'var(--text-mid)',
-                fontWeight: viewMode === 'grid' ? 700 : 500
-              }}
-            >
-              Grid View
+              <ChevronRight size={16} />
             </button>
           </div>
+        )}
+
+        {/* View Toggle */}
+        <div style={{
+          display: 'inline-flex',
+          padding: '3px',
+          borderRadius: 'var(--radius-full)',
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          marginLeft: 'auto'
+        }}>
+          <button
+            onClick={() => setViewMode('one-by-one')}
+            style={{
+              padding: '6px 16px',
+              borderRadius: 'var(--radius-full)',
+              fontSize: '0.78rem',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 700,
+              backgroundColor: viewMode === 'one-by-one' ? '#ffffff' : 'transparent',
+              color: viewMode === 'one-by-one' ? '#000000' : 'var(--text-mid)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Showcase Deck
+          </button>
+          <button
+            onClick={() => setViewMode('grid')}
+            style={{
+              padding: '6px 16px',
+              borderRadius: 'var(--radius-full)',
+              fontSize: '0.78rem',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 700,
+              backgroundColor: viewMode === 'grid' ? '#ffffff' : 'transparent',
+              color: viewMode === 'grid' ? '#000000' : 'var(--text-mid)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Grid View
+          </button>
         </div>
       </div>
 
-      {/* Numbered Stepper Pills (for fast hopping in One-by-One mode) */}
+      {/* Clean 11-Module Segment Bar (NO HORIZONTAL SCROLLBAR) */}
       {viewMode === 'one-by-one' && (
         <div style={{
-          display: 'flex',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(95px, 1fr))',
           gap: '6px',
-          overflowX: 'auto',
-          paddingBottom: '14px',
-          marginBottom: '20px'
+          marginBottom: '24px'
         }}>
           {functionalities.map((item, idx) => {
             const isSelected = currentIndex === idx;
+            const shortNames = [
+              'Biometrics', 'Security', 'Readiness', 'Cockpit',
+              'Workouts', 'AI Coach', 'Nutrition', 'Exercises',
+              'Analytics', 'Splits', 'Telemetry'
+            ];
             return (
               <button
                 key={item.id}
                 onClick={() => setCurrentIndex(idx)}
                 style={{
-                  padding: '7px 14px',
+                  padding: '8px 4px',
                   borderRadius: 'var(--radius-sm)',
-                  backgroundColor: isSelected ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.02)',
-                  border: isSelected ? `1px solid ${item.color}` : '1px solid rgba(255, 255, 255, 0.06)',
-                  color: isSelected ? '#ffffff' : 'var(--text-dim)',
+                  backgroundColor: isSelected ? '#ffffff' : 'rgba(255, 255, 255, 0.03)',
+                  border: isSelected ? '1px solid #ffffff' : '1px solid rgba(255, 255, 255, 0.08)',
+                  color: isSelected ? '#000000' : 'var(--text-dim)',
                   display: 'flex',
+                  flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '8px',
-                  whiteSpace: 'nowrap',
-                  fontSize: '0.76rem',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  gap: '2px',
                   fontFamily: 'var(--font-mono)',
-                  fontWeight: isSelected ? 700 : 400
+                  fontWeight: isSelected ? 800 : 500,
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer'
                 }}
               >
-                <span style={{ color: isSelected ? item.color : 'var(--text-dim)' }}>{item.id}</span>
-                <span>{item.title.split(' ')[0]}</span>
+                <span style={{ fontSize: '0.66rem', opacity: isSelected ? 0.75 : 0.5 }}>{item.id}</span>
+                <span style={{ fontSize: '0.74rem', whiteSpace: 'nowrap' }}>{shortNames[idx]}</span>
               </button>
             );
           })}
@@ -395,8 +417,8 @@ export default function FunctionalityCardsDeck() {
       {viewMode === 'one-by-one' && (
         <div className="glass-surface" style={{
           padding: '36px',
-          border: `1px solid ${currentCard.color}45`,
-          boxShadow: `0 25px 60px -20px ${currentCard.color}25`
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          boxShadow: '0 25px 60px -20px rgba(0, 0, 0, 0.95)'
         }}>
           <div style={{
             display: 'grid',
@@ -411,21 +433,21 @@ export default function FunctionalityCardsDeck() {
                   width: '36px',
                   height: '36px',
                   borderRadius: '10px',
-                  backgroundColor: `${currentCard.color}15`,
-                  border: `1px solid ${currentCard.color}40`,
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.18)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: currentCard.color
+                  color: '#ffffff'
                 }}>
                   <Icon size={18} />
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: currentCard.color, fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>
                     {currentCard.id} // {currentCard.category}
                   </span>
                   <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>
-                    ENDPOINT: <code>{currentCard.endpoint}</code>
+                    EXECUTION: <span style={{ color: '#fff', fontWeight: 600 }}>{currentCard.executionScope}</span>
                   </div>
                 </div>
               </div>
@@ -439,7 +461,7 @@ export default function FunctionalityCardsDeck() {
 
               {/* VISUAL DATA GRAPH / CHART ACCORDING TO FUNCTIONALITY */}
               <div style={{
-                backgroundColor: '#04070e',
+                backgroundColor: '#050507',
                 borderRadius: 'var(--radius-md)',
                 padding: '20px',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -453,11 +475,11 @@ export default function FunctionalityCardsDeck() {
                   borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
                   paddingBottom: '8px'
                 }}>
-                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: currentCard.color, fontWeight: 700 }}>
-                    📊 {currentCard.graphTitle}
+                  <span style={{ fontSize: '0.74rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>
+                    {currentCard.graphTitle}
                   </span>
                   <span className="pill-tag" style={{ fontSize: '0.62rem', padding: '1px 6px' }}>
-                    LIVE DATA MODEL
+                    DATA MODEL
                   </span>
                 </div>
 
@@ -491,11 +513,11 @@ export default function FunctionalityCardsDeck() {
                         <span style={{
                           fontFamily: 'var(--font-mono)',
                           fontSize: '0.72rem',
-                          color: 'var(--rose-primary)',
+                          color: '#ffffff',
                           fontWeight: 700,
                           minWidth: '40px'
                         }}>{step.step}</span>
-                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--rose-primary)' }} />
+                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ffffff' }} />
                         <div>
                           <strong style={{ color: '#fff' }}>{step.label}</strong>
                           <span style={{ color: 'var(--text-dim)', marginLeft: '8px', fontSize: '0.76rem' }}>— {step.status}</span>
@@ -511,13 +533,13 @@ export default function FunctionalityCardsDeck() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', height: '100px', padding: '10px 0' }}>
                       {currentCard.trendPoints.map((pt, i) => (
                         <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px', flex: 1 }}>
-                          <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#10b981', fontWeight: 700 }}>
+                          <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>
                             {pt.score}%
                           </span>
                           <div style={{
                             width: '18px',
                             height: `${pt.score * 0.7}px`,
-                            background: 'linear-gradient(180deg, #10b981 0%, #059669 100%)',
+                            background: 'linear-gradient(180deg, #ffffff 0%, #52525b 100%)',
                             borderRadius: '4px'
                           }} />
                           <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
@@ -536,7 +558,7 @@ export default function FunctionalityCardsDeck() {
                       <div key={i} style={{ padding: '10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.04)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', marginBottom: '4px' }}>
                           <span style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>{g.name}</span>
-                          <span style={{ color: g.color, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{g.pct}%</span>
+                          <span style={{ color: '#ffffff', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{g.pct}%</span>
                         </div>
                         <div style={{ height: '4px', width: '100%', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '2px', overflow: 'hidden' }}>
                           <div style={{ height: '100%', width: `${g.pct}%`, backgroundColor: g.color }} />
@@ -556,13 +578,14 @@ export default function FunctionalityCardsDeck() {
                         justifyContent: 'space-between',
                         fontSize: '0.78rem',
                         fontFamily: 'var(--font-mono)',
-                        padding: '4px 8px',
+                        padding: '6px 10px',
                         backgroundColor: 'rgba(255,255,255,0.02)',
-                        borderRadius: '4px'
+                        borderRadius: '4px',
+                        border: '1px solid rgba(255,255,255,0.04)'
                       }}>
                         <span style={{ color: '#fff', fontWeight: 600 }}>{row.week}: {row.weight}kg × {row.reps}</span>
-                        <span style={{ color: 'var(--amber-primary)' }}>RPE {row.rpe}</span>
-                        <span style={{ color: 'var(--emerald-primary)' }}>{row.status}</span>
+                        <span style={{ color: 'var(--color-silver)' }}>RPE {row.rpe}</span>
+                        <span style={{ color: '#ffffff', fontWeight: 600 }}>{row.status}</span>
                       </div>
                     ))}
                   </div>
@@ -575,7 +598,7 @@ export default function FunctionalityCardsDeck() {
                       <div key={i}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', marginBottom: '2px' }}>
                           <span style={{ color: 'var(--text-mid)' }}>{l.stage}</span>
-                          <span style={{ fontFamily: 'var(--font-mono)', color: l.color, fontWeight: 700 }}>{l.timeMs} ms</span>
+                          <span style={{ fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>{l.timeMs} ms</span>
                         </div>
                         <div style={{ height: '4px', width: '100%', backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: '2px' }}>
                           <div style={{ height: '100%', width: `${(l.timeMs / 100) * 100}%`, backgroundColor: l.color, borderRadius: '2px' }} />
@@ -583,7 +606,7 @@ export default function FunctionalityCardsDeck() {
                       </div>
                     ))}
                     <div style={{ fontSize: '0.72rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', textAlign: 'right', marginTop: '4px' }}>
-                      TOTAL PIPELINE TIME: <strong>154 ms</strong> (SUB-200MS INVARIANT)
+                      TOTAL PIPELINE TIME: <strong style={{ color: '#fff' }}>154 ms</strong> (SUB-200MS INVARIANT)
                     </div>
                   </div>
                 )}
@@ -591,21 +614,21 @@ export default function FunctionalityCardsDeck() {
                 {/* GRAPH TYPE: MACROS (e.g. FR-07 Nutrition) */}
                 {currentCard.graphType === 'macros' && (
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                    <div style={{ padding: '10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px' }}>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--cyan-primary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '4px' }}>
+                    <div style={{ padding: '12px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#ffffff', fontFamily: 'var(--font-mono)', fontWeight: 700, display: 'block', marginBottom: '4px' }}>
                         TRAINING DAY
                       </span>
                       <div style={{ fontSize: '0.78rem', color: '#fff' }}>Protein: 190g</div>
-                      <div style={{ fontSize: '0.78rem', color: '#fff' }}>Carbs: 380g (+15%)</div>
-                      <div style={{ fontSize: '0.78rem', color: '#fff' }}>Fats: 65g</div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--color-silver)' }}>Carbs: 380g (+15%)</div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-mid)' }}>Fats: 65g</div>
                     </div>
-                    <div style={{ padding: '10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px' }}>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--emerald-primary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '4px' }}>
+                    <div style={{ padding: '12px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                      <span style={{ fontSize: '0.72rem', color: '#ffffff', fontFamily: 'var(--font-mono)', fontWeight: 700, display: 'block', marginBottom: '4px' }}>
                         REST / RECOVERY DAY
                       </span>
                       <div style={{ fontSize: '0.78rem', color: '#fff' }}>Protein: 190g</div>
-                      <div style={{ fontSize: '0.78rem', color: '#fff' }}>Carbs: 210g (-44%)</div>
-                      <div style={{ fontSize: '0.78rem', color: '#fff' }}>Fats: 85g (+30%)</div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--color-silver)' }}>Carbs: 210g (-44%)</div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-mid)' }}>Fats: 85g (+30%)</div>
                     </div>
                   </div>
                 )}
@@ -615,7 +638,7 @@ export default function FunctionalityCardsDeck() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     {currentCard.decayHours.map((d, i) => (
                       <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.76rem', fontFamily: 'var(--font-mono)', padding: '3px 0' }}>
-                        <span style={{ color: 'var(--emerald-primary)', fontWeight: 700 }}>{d.hr}</span>
+                        <span style={{ color: '#ffffff', fontWeight: 700 }}>{d.hr}</span>
                         <span style={{ color: '#fff' }}>{d.recovery}% Recovered</span>
                         <span style={{ color: 'var(--text-dim)' }}>{d.note}</span>
                       </div>
@@ -629,8 +652,8 @@ export default function FunctionalityCardsDeck() {
                     {currentCard.lifts.map((l, i) => (
                       <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.78rem', padding: '4px 0' }}>
                         <span style={{ color: 'var(--text-mid)' }}>{l.name}</span>
-                        <span style={{ fontFamily: 'var(--font-mono)', color: '#fff', fontWeight: 600 }}>{l.start}kg $\to$ {l.current}kg</span>
-                        <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', fontWeight: 700 }}>{l.delta}</span>
+                        <span style={{ fontFamily: 'var(--font-mono)', color: '#fff', fontWeight: 600 }}>{l.start}kg → {l.current}kg</span>
+                        <span style={{ fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700 }}>{l.delta}</span>
                       </div>
                     ))}
                   </div>
@@ -641,7 +664,7 @@ export default function FunctionalityCardsDeck() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     {currentCard.scheduleDays.slice(0, 5).map((s, i) => (
                       <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', fontFamily: 'var(--font-mono)', padding: '2px 0' }}>
-                        <span style={{ color: 'var(--amber-primary)', fontWeight: 700, width: '35px' }}>{s.day}</span>
+                        <span style={{ color: '#ffffff', fontWeight: 700, width: '35px' }}>{s.day}</span>
                         <span style={{ color: '#fff' }}>{s.focus}</span>
                         <span style={{ color: 'var(--text-dim)' }}>{s.load}</span>
                       </div>
@@ -654,7 +677,7 @@ export default function FunctionalityCardsDeck() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     {currentCard.dispatches.map((dp, i) => (
                       <div key={i} style={{ display: 'flex', gap: '10px', fontSize: '0.74rem', alignItems: 'baseline' }}>
-                        <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--emerald-primary)', fontWeight: 700, width: '65px' }}>{dp.time}</span>
+                        <span style={{ fontFamily: 'var(--font-mono)', color: '#ffffff', fontWeight: 700, width: '65px' }}>{dp.time}</span>
                         <span className="pill-tag" style={{ fontSize: '0.62rem', padding: '1px 6px' }}>{dp.channel}</span>
                         <span style={{ color: 'var(--text-mid)' }}>{dp.msg}</span>
                       </div>
@@ -671,7 +694,7 @@ export default function FunctionalityCardsDeck() {
                 border: '1px solid rgba(255, 255, 255, 0.06)',
                 marginBottom: '16px'
               }}>
-                <strong style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: currentCard.color, display: 'block', marginBottom: '4px' }}>
+                <strong style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: '#ffffff', display: 'block', marginBottom: '4px' }}>
                   MATHEMATICAL MODEL & SYSTEM INVARIANT:
                 </strong>
                 <p style={{ fontSize: '0.84rem', color: 'var(--text-mid)', margin: 0, lineHeight: 1.5 }}>
@@ -681,12 +704,12 @@ export default function FunctionalityCardsDeck() {
 
               {/* Inputs & Outputs */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-xs)' }}>
-                  <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)', display: 'block' }}>INPUT TELEMETRY</span>
+                <div style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-xs)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-silver)', display: 'block' }}>INPUT TELEMETRY</span>
                   <span style={{ fontSize: '0.82rem', color: 'var(--text-high)' }}>{currentCard.inputs.join(', ')}</span>
                 </div>
-                <div style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-xs)' }}>
-                  <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--emerald-primary)', display: 'block' }}>OUTPUT ARTIFACTS</span>
+                <div style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-xs)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-silver)', display: 'block' }}>OUTPUT ARTIFACTS</span>
                   <span style={{ fontSize: '0.82rem', color: 'var(--text-high)' }}>{currentCard.outputs.join(', ')}</span>
                 </div>
               </div>
@@ -700,25 +723,25 @@ export default function FunctionalityCardsDeck() {
                 border: '1px solid rgba(255, 255, 255, 0.14)',
                 boxShadow: '0 25px 50px -15px rgba(0, 0, 0, 0.9)',
                 position: 'relative',
-                backgroundColor: '#020408'
+                backgroundColor: '#000000'
               }}>
                 <img
                   src={currentCard.screenshot}
                   alt={currentCard.title}
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  style={{ width: '100%', height: 'auto', display: 'block', imageRendering: '-webkit-optimize-contrast' }}
                 />
                 <div style={{
                   position: 'absolute',
                   bottom: '12px',
                   right: '12px',
-                  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                  backgroundColor: 'rgba(0, 0, 0, 0.85)',
                   backdropFilter: 'blur(8px)',
                   padding: '4px 12px',
                   borderRadius: 'var(--radius-xs)',
                   fontSize: '0.72rem',
                   fontFamily: 'var(--font-mono)',
                   color: '#fff',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                  border: '1px solid rgba(255, 255, 255, 0.15)'
                 }}>
                   UI CAPTURE // {currentCard.id}
                 </div>
@@ -735,7 +758,7 @@ export default function FunctionalityCardsDeck() {
                 color: 'var(--text-dim)'
               }}>
                 <span>USE ARROWS TO CYCLE CARDS</span>
-                <span style={{ color: currentCard.color }}>CARD {currentIndex + 1} OF 11</span>
+                <span style={{ color: '#ffffff', fontWeight: 600 }}>CARD {currentIndex + 1} OF 11</span>
               </div>
             </div>
           </div>
@@ -760,20 +783,21 @@ export default function FunctionalityCardsDeck() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  borderTop: `3px solid ${card.color}`
+                  borderTop: '2px solid rgba(255, 255, 255, 0.4)',
+                  background: 'rgba(15, 15, 18, 0.65)'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 800, color: card.color, fontSize: '0.84rem' }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 800, color: '#ffffff', fontSize: '0.84rem' }}>
                         {card.id}
                       </span>
                       <span className="pill-tag" style={{ fontSize: '0.62rem', padding: '1px 6px' }}>
                         {card.category}
                       </span>
                     </div>
-                    <CardIcon size={16} color={card.color} />
+                    <CardIcon size={16} color="#ffffff" />
                   </div>
 
                   <h4 style={{ fontSize: '1.25rem', color: '#fff', marginBottom: '8px' }}>
@@ -790,7 +814,7 @@ export default function FunctionalityCardsDeck() {
                     borderRadius: 'var(--radius-sm)',
                     overflow: 'hidden',
                     marginBottom: '16px',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
                     position: 'relative'
                   }}>
                     <img
@@ -802,7 +826,7 @@ export default function FunctionalityCardsDeck() {
                       position: 'absolute',
                       bottom: '8px',
                       left: '8px',
-                      backgroundColor: 'rgba(0,0,0,0.8)',
+                      backgroundColor: 'rgba(0,0,0,0.85)',
                       padding: '2px 8px',
                       borderRadius: '4px',
                       fontSize: '0.65rem',
@@ -821,9 +845,10 @@ export default function FunctionalityCardsDeck() {
                     marginBottom: '14px',
                     padding: '10px 12px',
                     backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                    borderRadius: 'var(--radius-xs)'
+                    borderRadius: 'var(--radius-xs)',
+                    border: '1px solid rgba(255, 255, 255, 0.04)'
                   }}>
-                    <strong style={{ color: card.color }}>Model: </strong>
+                    <strong style={{ color: '#ffffff' }}>Model: </strong>
                     {card.algorithm}
                   </div>
                 </div>
@@ -838,8 +863,8 @@ export default function FunctionalityCardsDeck() {
                   fontFamily: 'var(--font-mono)',
                   color: 'var(--text-dim)'
                 }}>
-                  <span>ENDPOINT</span>
-                  <code style={{ color: card.color }}>{card.endpoint}</code>
+                  <span>EXECUTION</span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>{card.executionScope}</span>
                 </div>
               </div>
             );

@@ -1,23 +1,24 @@
 import React from 'react';
-import { ArrowUpRight, Check, X } from 'lucide-react';
+import { Check, X, Play } from 'lucide-react';
 import InteractiveWorkoutTimer from '../components/InteractiveWorkoutTimer';
 import ScreenshotLightbox from '../components/ScreenshotLightbox';
+import VideoWalkthroughPlayer from '../components/VideoWalkthroughPlayer';
 
-export default function ExperiencePage({ setActivePage }) {
+export default function ExperiencePage() {
   const gallery = [
-    { src: '/assets/01_dashboard.png', title: 'Athlete Command Center', category: 'CENTRAL COCKPIT', description: 'Real-time telemetry tracking morning readiness, calorie partitions, and today’s workout phase.' },
-    { src: '/assets/03_workouts.png', title: 'Dynamic Workout Execution', category: 'IN-GYM LOGGING', description: 'Active gym companion interface with automated rest intervals, RPE ratings, and progressive overload steps.' },
-    { src: '/assets/04_coach.png', title: '24/7 Multi-Agent Coach', category: 'AI AGENT', description: 'Conversational consultation for biomechanical exercise swaps, form cues, and daily nutrition adjustments.' },
-    { src: '/assets/05_nutrition.png', title: 'Precision Nutrition Vault', category: 'MACRO TRACKING', description: 'Caloric periodization, protein balance meters, and micro-nutrient tracking calibrated to training load.' },
-    { src: '/assets/06_progress.png', title: 'Data-Driven Progression', category: 'ANALYTICS', description: 'Multi-week volume curves, 1RM estimated strength progression, and body composition transformation charts.' },
-    { src: '/assets/07_exercises.png', title: 'Verified Exercise Encyclopedia', category: 'CATALOG', description: 'Anatomical muscle group mapping, form execution cues, and video demonstration links.' }
+    { src: '/assets/01_dashboard.png', title: 'Athlete Command Center', category: 'CENTRAL COCKPIT', description: 'Real-time telemetry tracking morning readiness, calorie partitions, weekly progress, and athlete biometrics.' },
+    { src: '/assets/03_workouts.png', title: 'Dynamic Workout Execution', category: 'IN-GYM LOGGING', description: 'Active gym companion interface with live movement demo, digital countdown timer, movement progression, and routine volume tracking.' },
+    { src: '/assets/04_coach.png', title: '24/7 Multi-Agent Coach', category: 'AI AGENT', description: 'Atlas multi-agent pipeline consultation with adaptive tone control, macro breakdowns, and actionable nutrition & training chips.' },
+    { src: '/assets/05_nutrition.png', title: 'Precision Nutrition Vault', category: 'MACRO TRACKING', description: 'Caloric periodization, macronutrient rings, prescribed meal recipes with photography, and real-time food diary tracking.' },
+    { src: '/assets/06_progress.png', title: 'Data-Driven Progression', category: 'ANALYTICS', description: 'Foundational phase microcycles, tier graduation requirements, volume consistency, and weight lifted over time analytics.' },
+    { src: '/assets/07_exercises.png', title: 'Verified Exercise Encyclopedia', category: 'CATALOG', description: 'Target muscle category selector, structured training tiers (Beginner, Intermediate, Advanced), and interactive routine launchpad.' }
   ];
 
   const comparison = [
     { feature: 'Biometric Daily Periodization', fitmind: 'Autonomous Dynamic (Daily Recalculation)', generic: 'Static Spreadsheet / Generic', trainer: 'Subjective / Variable' },
     { feature: 'Morning Readiness Engine (0-100%)', fitmind: 'Multi-factor HRV, Sleep & Soreness', generic: 'None / Not Included', trainer: 'Occasional Verbal Check-in' },
     { feature: 'In-Session Automated Rest Timer', fitmind: 'Native Countdown with Audio Synthesizer', generic: 'Basic Manual Stopwatch', trainer: 'Coach Counting Seconds' },
-    { feature: 'Multi-Agent AI Athletic Coach', fitmind: '24/7 Sub-200ms Multi-Agent (LangGraph)', generic: 'Basic Hallucinating Chatbot', trainer: 'Delayed Messaging / Scheduled' },
+    { feature: 'Multi-Agent AI Athletic Coach', fitmind: '24/7 Sub-200ms Multi-Agent Intelligence', generic: 'Basic Hallucinating Chatbot', trainer: 'Delayed Messaging / Scheduled' },
     { feature: 'Auto-Progressive Overload Math', fitmind: 'Deterministic RPE & 1RM Algorithms', generic: 'Manual Guesswork', trainer: 'Trainer Memory' },
     { feature: 'Enterprise Single-Use OTP Security', fitmind: 'Cryptographic 6-Digit Verification', generic: 'Standard Passwords', trainer: 'N/A' },
     { feature: 'Pricing & Availability', fitmind: '100% Free / Zero Hidden Paywalls', generic: '$15 – $35 / Month Subscription', trainer: '$300 – $750 / Month' }
@@ -25,30 +26,55 @@ export default function ExperiencePage({ setActivePage }) {
 
   return (
     <div style={{ paddingBottom: '90px' }}>
-      <section style={{ padding: '70px 0 50px', textAlign: 'center' }}>
+      <section style={{ padding: '70px 0 40px', textAlign: 'center' }}>
         <div className="container">
-          <span className="tech-pill tech-pill-cyan" style={{ marginBottom: '14px' }}>
-            IN-GYM TELEMETRY & VISUAL GALLERY
+          <span className="pill-tag" style={{ marginBottom: '14px' }}>
+            IN-GYM TELEMETRY, VIDEO & VISUAL GALLERY
           </span>
           <h1 className="section-headline">Athlete Experience & UI Gallery</h1>
           <p className="section-subhead">
-            Experience the in-gym workflow firsthand and inspect high-fidelity captures of the live web application.
+            Watch the complete platform video walkthrough and experience the interactive live gym workflow.
           </p>
         </div>
       </section>
 
-      {/* Interactive Workout Timer */}
-      <section style={{ padding: '0 0 60px' }}>
+      {/* Complete Video Walkthrough Section */}
+      <section style={{ padding: '0 0 70px' }}>
         <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="pill-tag" style={{ marginBottom: '10px' }}>
+              FULL PLATFORM DEMONSTRATION
+            </span>
+            <h2 className="section-headline">Live System Walkthrough</h2>
+            <p className="section-subhead">
+              End-to-end guided video walkthrough demonstrating onboarding, biometrics, workout execution, AI coaching, and nutrition tracking.
+            </p>
+          </div>
+
+          <div style={{ maxWidth: '1160px', margin: '0 auto' }}>
+            <VideoWalkthroughPlayer />
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Workout Timer */}
+      <section style={{ padding: '20px 0 70px' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="pill-tag" style={{ marginBottom: '10px' }}>
+              INTERACTIVE COMPANION
+            </span>
+            <h2 className="section-headline">Live In-Gym Simulator</h2>
+          </div>
           <InteractiveWorkoutTimer />
         </div>
       </section>
 
       {/* Full-Fidelity Screenshot Lightbox Gallery */}
-      <section style={{ padding: '40px 0 70px' }}>
+      <section style={{ padding: '20px 0 70px' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <span className="tech-pill" style={{ marginBottom: '12px' }}>
+            <span className="pill-tag" style={{ marginBottom: '12px' }}>
               PRODUCTION CAPTURES
             </span>
             <h2 className="section-headline">Visual Interface Gallery</h2>
@@ -65,7 +91,7 @@ export default function ExperiencePage({ setActivePage }) {
       <section style={{ padding: '20px 0 60px' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <span className="tech-pill tech-pill-emerald" style={{ marginBottom: '12px' }}>
+            <span className="pill-tag" style={{ marginBottom: '12px' }}>
               COMPETITIVE ANALYSIS
             </span>
             <h2 className="section-headline">Why FitMind AI Outperforms</h2>
@@ -91,13 +117,13 @@ export default function ExperiencePage({ setActivePage }) {
                     </td>
                     <td style={{ padding: '16px', color: '#fff', fontWeight: 600, backgroundColor: 'rgba(255, 255, 255, 0.04)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Check size={14} color="var(--accent-cyan)" />
+                        <Check size={14} color="#ffffff" strokeWidth={3} />
                         <span>{row.fitmind}</span>
                       </div>
                     </td>
                     <td style={{ padding: '16px', color: 'var(--text-mid)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <X size={14} color="var(--accent-rose)" />
+                        <X size={14} color="var(--text-dim)" />
                         <span>{row.generic}</span>
                       </div>
                     </td>
@@ -108,41 +134,6 @@ export default function ExperiencePage({ setActivePage }) {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Conversion Banner */}
-      <section style={{ padding: '20px 0' }}>
-        <div className="container">
-          <div className="obsidian-card" style={{
-            padding: '50px 30px',
-            textAlign: 'center',
-            background: 'linear-gradient(180deg, rgba(16, 20, 28, 0.9) 0%, rgba(8, 10, 15, 0.95) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.12)'
-          }}>
-            <span className="tech-pill tech-pill-cyan" style={{ marginBottom: '16px' }}>
-              READY FOR DEPLOYMENT
-            </span>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', marginBottom: '14px', fontWeight: 800 }}>
-              Elevate Your Potential with FitMind AI
-            </h2>
-            <p style={{ fontSize: '1.05rem', color: 'var(--text-mid)', maxWidth: '640px', margin: '0 auto 28px' }}>
-              Autonomous periodization. Deterministic safety. Complete athletic intelligence.
-            </p>
-
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
-              <a href="http://localhost:5173" target="_blank" rel="noreferrer" className="btn-solid-titanium">
-                <span>Launch Live Platform</span>
-                <ArrowUpRight size={16} />
-              </a>
-              <button
-                onClick={() => { setActivePage('functional'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                className="btn-ghost-dark"
-              >
-                <span>Back to Functional Requirements</span>
-              </button>
-            </div>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Brain, Sparkles, CheckCircle2, ArrowRight, Shield, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
+import { Brain, CheckCircle2, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function InteractiveCoach() {
   const presets = [
@@ -63,16 +63,16 @@ export default function InteractiveCoach() {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <span className="tech-pill tech-pill-violet">MULTI-AGENT AGENTIC CORE</span>
+            <span className="pill-tag">AI REASONING CORE</span>
             <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-dim)' }}>
-              POST /api/v1/coach/chat
+              BIOMECHANICAL SWAP ENGINE
             </span>
           </div>
           <h3 style={{ fontSize: '1.45rem', fontWeight: 700, color: '#fff' }}>
-            FR-06: Autonomous Conversational Athletic Agent
+            Autonomous Conversational Athletic Agent
           </h3>
           <p style={{ fontSize: '0.88rem', color: 'var(--text-mid)', marginTop: '4px' }}>
-            Live simulation of multi-agent LangGraph workflow (Planner $\to$ Resolver $\to$ Validator $\to$ Dispatcher).
+            Live simulation of multi-agent reasoning flow (Planner → Resolver → Validator → Dispatcher).
           </p>
         </div>
 
@@ -100,9 +100,10 @@ export default function InteractiveCoach() {
                 borderRadius: 'var(--radius-full)',
                 fontSize: '0.82rem',
                 fontFamily: 'var(--font-mono)',
-                backgroundColor: isSelected ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.02)',
-                color: isSelected ? '#ffffff' : 'var(--text-mid)',
-                border: isSelected ? '1px solid rgba(255, 255, 255, 0.25)' : '1px solid rgba(255, 255, 255, 0.06)',
+                backgroundColor: isSelected ? '#ffffff' : 'rgba(255, 255, 255, 0.03)',
+                color: isSelected ? '#000000' : 'var(--text-mid)',
+                border: isSelected ? '1px solid #ffffff' : '1px solid rgba(255, 255, 255, 0.08)',
+                fontWeight: isSelected ? 700 : 500,
                 transition: 'all 0.2s ease'
               }}
             >
@@ -114,15 +115,15 @@ export default function InteractiveCoach() {
 
       {/* Chat Terminal Box */}
       <div style={{
-        backgroundColor: '#05070a',
+        backgroundColor: '#000000',
         borderRadius: 'var(--radius-md)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
         overflow: 'hidden'
       }}>
         {/* User Query */}
         <div style={{
           padding: '16px 20px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           display: 'flex',
           gap: '12px',
           alignItems: 'baseline'
@@ -139,20 +140,20 @@ export default function InteractiveCoach() {
         {showTrace && (
           <div style={{
             padding: '14px 20px',
-            backgroundColor: 'rgba(168, 85, 247, 0.04)',
-            borderBottom: '1px solid rgba(168, 85, 247, 0.15)',
+            backgroundColor: 'rgba(255, 255, 255, 0.03)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
             fontSize: '0.78rem',
             fontFamily: 'var(--font-mono)'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-violet)', marginBottom: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff', marginBottom: '6px' }}>
               <Terminal size={14} />
-              <strong>LANGGRAPH AGENT REASONING TRACE:</strong>
+              <strong>MULTI-AGENT REASONING TRACE:</strong>
             </div>
             <div style={{ color: 'var(--text-mid)', marginBottom: '4px' }}>
-              <span style={{ color: 'var(--accent-cyan)' }}>[PLANNER]</span> {activePreset.plannerThought}
+              <span style={{ color: '#ffffff', fontWeight: 600 }}>[PLANNER]</span> {activePreset.plannerThought}
             </div>
             <div style={{ color: 'var(--text-mid)' }}>
-              <span style={{ color: 'var(--accent-emerald)' }}>[TOOLS DISPATCHED]</span> {activePreset.toolsCalled.join(' $\\to$ ')}
+              <span style={{ color: '#ffffff', fontWeight: 600 }}>[TOOLS DISPATCHED]</span> {activePreset.toolsCalled.join(' → ')}
             </div>
           </div>
         )}
@@ -164,7 +165,8 @@ export default function InteractiveCoach() {
               width: '8px',
               height: '8px',
               borderRadius: '50%',
-              backgroundColor: 'var(--accent-violet)',
+              backgroundColor: '#ffffff',
+              boxShadow: '0 0 6px rgba(255, 255, 255, 0.8)',
               display: 'inline-block'
             }} />
             <span style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: '#fff', fontWeight: 600 }}>
@@ -181,8 +183,8 @@ export default function InteractiveCoach() {
             marginTop: '16px',
             padding: '16px 20px',
             borderRadius: 'var(--radius-sm)',
-            backgroundColor: 'rgba(255, 255, 255, 0.03)',
-            border: '1px solid rgba(255, 255, 255, 0.08)'
+            backgroundColor: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
           }}>
             <div style={{
               display: 'flex',
@@ -190,7 +192,7 @@ export default function InteractiveCoach() {
               gap: '6px',
               fontSize: '0.74rem',
               fontFamily: 'var(--font-mono)',
-              color: 'var(--accent-emerald)',
+              color: '#ffffff',
               fontWeight: 700,
               letterSpacing: '0.08em',
               marginBottom: '10px'
@@ -204,7 +206,7 @@ export default function InteractiveCoach() {
                 {activePreset.actionCard.from}
               </div>
               <div style={{ color: '#fff', fontWeight: 600 }}>
-                $\to$ {activePreset.actionCard.to}
+                → {activePreset.actionCard.to}
               </div>
             </div>
 
