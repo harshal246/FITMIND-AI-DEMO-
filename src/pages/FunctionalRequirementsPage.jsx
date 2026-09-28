@@ -92,10 +92,9 @@ export default function FunctionalRequirementsPage() {
           </div>
 
           {/* Hero Headline */}
-          <h1 className="hero-headline" style={{ maxWidth: '980px', margin: '0 auto 20px', letterSpacing: '-0.035em' }}>
-            Your Intelligent AI Fitness Coach.
-            <br />
-            <span className="hero-gradient-text">
+          <h1 className="hero-headline" style={{ maxWidth: '1200px', margin: '0 auto 20px', letterSpacing: '-0.035em' }}>
+            <span className="hero-title-line">Your Intelligent AI Fitness Coach.</span>
+            <span className="hero-title-line hero-gradient-text">
               Smart Workouts, Nutrition & Recovery.
             </span>
           </h1>

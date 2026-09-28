@@ -278,11 +278,21 @@ button {
 
 /* Section Headlines */
 .hero-headline {
-  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
   color: #ffffff;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-title-line {
+    white-space: nowrap;
+  }
 }
 
 .hero-gradient-text {
