@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Brain, Shield, ExternalLink, ArrowRight } from 'lucide-react';
+import { LIVE_APP_URL } from '../config';
 
 export default function Footer() {
   return (
@@ -136,7 +137,7 @@ export default function Footer() {
               Launch the complete athlete companion portal in your browser:
             </p>
             <a
-              href="https://100.63.74.53.sslip.io/"
+              href={LIVE_APP_URL}
               target="_blank"
               rel="noreferrer"
               className="btn-glass-secondary"

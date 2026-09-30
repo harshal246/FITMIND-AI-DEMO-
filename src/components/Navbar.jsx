@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Brain, Layers, Cpu, PlayCircle, Sliders, Menu, X, ArrowUpRight } from 'lucide-react';
+import { LIVE_APP_URL } from '../config';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -134,7 +135,7 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {/* Direct link to live running app */}
           <a
-            href="https://100.63.74.53.sslip.io/"
+            href={LIVE_APP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-solid-titanium"
@@ -207,6 +208,26 @@ export default function Navbar() {
               </NavLink>
             );
           })}
+
+          <a
+            href={LIVE_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-solid-titanium"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              marginTop: '6px',
+              padding: '12px 16px',
+              fontSize: '0.9rem',
+              textDecoration: 'none'
+            }}
+          >
+            <span>Launch Live App</span>
+            <ArrowUpRight size={15} />
+          </a>
         </div>
       )}
 

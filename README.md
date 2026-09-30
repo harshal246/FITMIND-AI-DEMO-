@@ -17,6 +17,16 @@ Full-page, luxury frontend showcasing all 11 core functional requirements, dual 
 - Vanilla CSS (Obsidian & Titanium Design System)
 - Lucide Icons
 
+## Environment Variables
+Configure the live application target in `.env` (or `.env.local`):
+
+```bash
+# FitMind AI - Live Application URL
+VITE_LIVE_APP_URL=https://100.63.74.53.sslip.io/
+```
+
+Whenever your deployed URL changes, simply update `VITE_LIVE_APP_URL` in `.env`. All links in the navigation bar, mobile menu, and footer will update automatically.
+
 ## Quick Start
 ```bash
 npm install
