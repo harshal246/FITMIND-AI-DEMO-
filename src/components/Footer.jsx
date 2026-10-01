@@ -162,12 +162,33 @@ export default function Footer() {
           color: 'var(--text-dim)'
         }}>
           <div>
-            © {new Date().getFullYear()} FitMind AI. All rights reserved. Autonomous Athletic Operating System.
+            © {new Date().getFullYear()} FitMind AI Platform Inc. All rights reserved. Autonomous Athletic Operating System.
           </div>
-          <div style={{ display: 'flex', gap: '16px' }}>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <a
+              href={`${LIVE_APP_URL}/privacy`}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'var(--text-mid)', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-mid)'}
+            >
+              Privacy Policy (GDPR)
+            </a>
+            <span>·</span>
+            <a
+              href={`${LIVE_APP_URL}/terms`}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: 'var(--text-mid)', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-mid)'}
+            >
+              Terms of Service
+            </a>
+            <span>·</span>
             <span>Zero Data Fabrication</span>
             <span>Deterministic Safety Verified</span>
-            <span>Sub-200ms Decision Engine</span>
           </div>
         </div>
       </div>
